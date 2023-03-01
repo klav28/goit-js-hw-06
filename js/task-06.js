@@ -1,13 +1,16 @@
 const inputField = document.querySelector("#validation-input");
 const dataLength = Number(inputField.dataset.length);
 
+function changeOutline(removeClass, setClass) {
+        inputField.classList.remove(removeClass);
+        inputField.classList.add(setClass);
+}
+
 const handleInputField = () => {
     if (inputField.value.trim().length === dataLength) {
-        inputField.classList.remove("invalid");
-        inputField.classList.add("valid");
+        changeOutline("invalid", "valid");
     } else {
-        inputField.classList.remove("valid");
-        inputField.classList.add("invalid");
+        changeOutline("valid", "invalid");
     }
 }
 
